@@ -1,0 +1,5 @@
+# Netlify redirects
+# Add your Chrome/Firefox extension store URLs here when published
+# /chrome  https://chrome.google.com/webstore/detail/spamtrace/YOUR_EXTENSION_ID  302
+# /firefox https://addons.mozilla.org/en-US/firefox/addon/spamtrace/  302
+
