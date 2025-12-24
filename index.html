@@ -5,20 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SpamTrace — Know Exactly Who Sold Your Email</title>
   <meta name="description" content="Free browser extension that automatically tracks which websites share or sell your email. Catch data sellers red-handed.">
+  <meta name="keywords" content="email tracking, spam tracker, email privacy, browser extension, data privacy, email alias, plus addressing">
+  <meta name="author" content="SpamTrace">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://spamtrace.dev/">
   
   <!-- Open Graph -->
   <meta property="og:title" content="SpamTrace — Know Exactly Who Sold Your Email">
-  <meta property="og:description" content="Free browser extension that automatically tracks which websites share or sell your email.">
+  <meta property="og:description" content="Free browser extension that automatically tracks which websites share or sell your email. Catch data sellers red-handed.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="og-image.png">
+  <meta property="og:url" content="https://spamtrace.dev/">
+  <meta property="og:image" content="https://spamtrace.dev/og-image.png">
+  <meta property="og:site_name" content="SpamTrace">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SpamTrace — Know Exactly Who Sold Your Email">
+  <meta name="twitter:description" content="Free browser extension that automatically tracks which websites share or sell your email.">
+  <meta name="twitter:image" content="https://spamtrace.dev/og-image.png">
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SpamTrace",
+    "description": "Free browser extension that automatically tracks which websites share or sell your email by using unique email tags.",
+    "applicationCategory": "BrowserApplication",
+    "operatingSystem": "Chrome, Firefox, Edge",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "ratingCount": "1"
+    }
+  }
+  </script>
   
   <style>
     :root {
@@ -118,15 +153,6 @@
       color: var(--text-primary);
     }
 
-    .nav-cta .primary {
-      background: var(--accent);
-      color: #000;
-    }
-
-    .nav-cta .primary:hover {
-      filter: brightness(1.1);
-    }
-
     /* Hero Section */
     .hero {
       padding: 140px 0 80px;
@@ -165,12 +191,6 @@
       height: 6px;
       background: var(--accent);
       border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
     }
 
     h1 {
@@ -237,7 +257,7 @@
       box-shadow: 0 6px 32px rgba(255, 113, 57, 0.4);
     }
 
-    .btn svg {
+    .btn img {
       width: 20px;
       height: 20px;
     }
@@ -628,10 +648,21 @@
     footer a {
       color: var(--text-secondary);
       text-decoration: none;
+      transition: color 0.2s;
     }
 
     footer a:hover {
       color: var(--accent);
+    }
+
+    .built-by {
+      margin-top: 16px;
+      font-size: 13px;
+    }
+
+    .built-by a {
+      color: var(--accent);
+      font-weight: 500;
     }
 
     /* Responsive */
@@ -704,15 +735,11 @@
       </p>
       <div class="cta-buttons" id="install">
         <a href="#" class="btn btn-chrome">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0C8.21 0 4.831 1.757 2.632 4.501l3.953 6.848A5.454 5.454 0 0 1 12 6.545h10.691A12 12 0 0 0 12 0zM1.931 5.47A11.943 11.943 0 0 0 0 12c0 6.012 4.42 10.991 10.189 11.864l3.953-6.847a5.45 5.45 0 0 1-6.865-2.29zm13.342 2.166a5.446 5.446 0 0 1 1.45 7.09l.002.001h-.002l-3.952 6.848a12.014 12.014 0 0 0 9.56-9.404h-7.908zM12 16.364a4.364 4.364 0 1 1 0-8.728 4.364 4.364 0 0 1 0 8.728z"/>
-          </svg>
+          <img src="chrome.svg" alt="Chrome">
           Add to Chrome
         </a>
         <a href="#" class="btn btn-firefox">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 5.03c.316.598.476 1.28.523 1.965.01.12.016.24.016.36 0 .386-.053.762-.153 1.12-.285-.24-.615-.42-.975-.528a3.15 3.15 0 0 0-.228-1.26c-.244-.556-.665-.99-1.182-1.242.63-.238 1.388-.323 2-.415zm-8.15.197c.18.052.356.116.525.194.495.227.924.574 1.248 1.01.106.145.2.3.28.46-.43.06-.83.21-1.19.44-.63-.39-1.4-.58-2.2-.43-.44.08-.85.26-1.21.53-.1-.13-.19-.26-.27-.4-.325-.563-.46-1.224-.38-1.87.665.19 1.395.21 2.19.08.34-.05.68-.05 1.01-.01zm5.64 1.97c.52.14.99.44 1.34.87.43.53.67 1.2.67 1.9 0 .42-.08.83-.25 1.21-.4-.21-.85-.34-1.32-.37-.05-.55-.24-1.08-.56-1.52-.22-.3-.5-.55-.82-.74.28-.41.52-.86.7-1.35.08-.01.16-.01.24 0zm-7.74.36c.4.14.76.37 1.06.67.3.3.53.66.67 1.06-.51.21-.96.54-1.3.96-.41-.13-.84-.2-1.27-.2-.19 0-.37.01-.55.04.01-.31.05-.62.12-.92.2-.82.66-1.52 1.27-2.05v.44zm10.46 2.1c.51.1.98.34 1.36.69.25.24.44.53.56.86-.6.28-1.13.7-1.54 1.21-.2-.36-.48-.67-.82-.9-.28-.19-.6-.32-.93-.38.05-.18.09-.36.11-.55.05-.32.13-.63.26-.93zm-12.7.44c.48.03.95.17 1.36.42.36.21.66.51.88.87-.45.35-.82.78-1.1 1.27-.4-.25-.85-.4-1.32-.44-.29-.03-.59-.01-.87.05-.04-.24-.06-.48-.06-.72 0-.52.1-1.01.3-1.46.27.01.54.01.81.01zm7.61.67c.59 0 1.14.23 1.55.64.41.41.64.96.64 1.55s-.23 1.14-.64 1.55c-.41.41-.96.64-1.55.64s-1.14-.23-1.55-.64c-.41-.41-.64-.96-.64-1.55s.23-1.14.64-1.55c.41-.41.96-.64 1.55-.64z"/>
-          </svg>
+          <img src="firefox.svg" alt="Firefox">
           Add to Firefox
         </a>
       </div>
@@ -746,12 +773,12 @@
           <div class="email-example">
             <div class="email-box">
               <div class="email-label">Your Email</div>
-              <div class="email-value">ethan@gmail.com</div>
+              <div class="email-value">john@gmail.com</div>
             </div>
             <span class="arrow">→</span>
             <div class="email-box">
               <div class="email-label">What Gets Used</div>
-              <div class="email-value">ethan<span class="tag">+shopify</span>@gmail.com</div>
+              <div class="email-value">john<span class="tag">+shopify</span>@gmail.com</div>
             </div>
           </div>
           <div class="sites-grid">
@@ -759,28 +786,42 @@
               <div class="site-icon" style="background: #5865F2;">D</div>
               <div class="site-info">
                 <div class="site-name">Discord</div>
-                <div class="site-email">ethan<span class="tag">+discord</span>@gmail.com</div>
+                <div class="site-email">john<span class="tag">+discord</span>@gmail.com</div>
               </div>
             </div>
             <div class="site-tag">
               <div class="site-icon" style="background: #1877F2;">f</div>
               <div class="site-info">
                 <div class="site-name">Facebook</div>
-                <div class="site-email">ethan<span class="tag">+facebook</span>@gmail.com</div>
+                <div class="site-email">john<span class="tag">+facebook</span>@gmail.com</div>
               </div>
             </div>
             <div class="site-tag">
               <div class="site-icon" style="background: #FF4500;">R</div>
               <div class="site-info">
                 <div class="site-name">Reddit</div>
-                <div class="site-email">ethan<span class="tag">+reddit</span>@gmail.com</div>
+                <div class="site-email">john<span class="tag">+reddit</span>@gmail.com</div>
               </div>
             </div>
             <div class="site-tag">
               <div class="site-icon" style="background: #95BF47;">S</div>
               <div class="site-info">
                 <div class="site-name">Shopify Store</div>
-                <div class="site-email">ethan<span class="tag">+shopify</span>@gmail.com</div>
+                <div class="site-email">john<span class="tag">+shopify</span>@gmail.com</div>
+              </div>
+            </div>
+            <div class="site-tag">
+              <div class="site-icon" style="background: #000;">X</div>
+              <div class="site-info">
+                <div class="site-name">X (Twitter)</div>
+                <div class="site-email">john<span class="tag">+twitter</span>@gmail.com</div>
+              </div>
+            </div>
+            <div class="site-tag">
+              <div class="site-icon" style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);">I</div>
+              <div class="site-info">
+                <div class="site-name">Instagram</div>
+                <div class="site-email">john<span class="tag">+instagram</span>@gmail.com</div>
               </div>
             </div>
           </div>
@@ -808,7 +849,7 @@
           </div>
           <div class="busted-email-content">
             <div class="busted-from">From: "Win a FREE iPhone!!!" &lt;spam@sketchy.biz&gt;</div>
-            <div class="busted-to">To: ethan<span class="culprit">+facebook</span>@gmail.com</div>
+            <div class="busted-to">To: john<span class="culprit">+facebook</span>@gmail.com</div>
           </div>
         </div>
         <p class="busted-desc">
@@ -895,15 +936,11 @@
       <p>Join thousands who've taken control of their inbox.</p>
       <div class="cta-buttons">
         <a href="#" class="btn btn-chrome">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0C8.21 0 4.831 1.757 2.632 4.501l3.953 6.848A5.454 5.454 0 0 1 12 6.545h10.691A12 12 0 0 0 12 0zM1.931 5.47A11.943 11.943 0 0 0 0 12c0 6.012 4.42 10.991 10.189 11.864l3.953-6.847a5.45 5.45 0 0 1-6.865-2.29zm13.342 2.166a5.446 5.446 0 0 1 1.45 7.09l.002.001h-.002l-3.952 6.848a12.014 12.014 0 0 0 9.56-9.404h-7.908zM12 16.364a4.364 4.364 0 1 1 0-8.728 4.364 4.364 0 0 1 0 8.728z"/>
-          </svg>
+          <img src="chrome.svg" alt="Chrome">
           Add to Chrome — Free
         </a>
         <a href="#" class="btn btn-firefox">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 5.03c.316.598.476 1.28.523 1.965.01.12.016.24.016.36 0 .386-.053.762-.153 1.12-.285-.24-.615-.42-.975-.528a3.15 3.15 0 0 0-.228-1.26c-.244-.556-.665-.99-1.182-1.242.63-.238 1.388-.323 2-.415zm-8.15.197c.18.052.356.116.525.194.495.227.924.574 1.248 1.01.106.145.2.3.28.46-.43.06-.83.21-1.19.44-.63-.39-1.4-.58-2.2-.43-.44.08-.85.26-1.21.53-.1-.13-.19-.26-.27-.4-.325-.563-.46-1.224-.38-1.87.665.19 1.395.21 2.19.08.34-.05.68-.05 1.01-.01zm5.64 1.97c.52.14.99.44 1.34.87.43.53.67 1.2.67 1.9 0 .42-.08.83-.25 1.21-.4-.21-.85-.34-1.32-.37-.05-.55-.24-1.08-.56-1.52-.22-.3-.5-.55-.82-.74.28-.41.52-.86.7-1.35.08-.01.16-.01.24 0zm-7.74.36c.4.14.76.37 1.06.67.3.3.53.66.67 1.06-.51.21-.96.54-1.3.96-.41-.13-.84-.2-1.27-.2-.19 0-.37.01-.55.04.01-.31.05-.62.12-.92.2-.82.66-1.52 1.27-2.05v.44zm10.46 2.1c.51.1.98.34 1.36.69.25.24.44.53.56.86-.6.28-1.13.7-1.54 1.21-.2-.36-.48-.67-.82-.9-.28-.19-.6-.32-.93-.38.05-.18.09-.36.11-.55.05-.32.13-.63.26-.93zm-12.7.44c.48.03.95.17 1.36.42.36.21.66.51.88.87-.45.35-.82.78-1.1 1.27-.4-.25-.85-.4-1.32-.44-.29-.03-.59-.01-.87.05-.04-.24-.06-.48-.06-.72 0-.52.1-1.01.3-1.46.27.01.54.01.81.01zm7.61.67c.59 0 1.14.23 1.55.64.41.41.64.96.64 1.55s-.23 1.14-.64 1.55c-.41.41-.96.64-1.55.64s-1.14-.23-1.55-.64c-.41-.41-.64-.96-.64-1.55s.23-1.14.64-1.55c.41-.41.96-.64 1.55-.64z"/>
-          </svg>
+          <img src="firefox.svg" alt="Firefox">
           Add to Firefox — Free
         </a>
       </div>
@@ -915,11 +952,13 @@
     <div class="container">
       <p>
         SpamTrace is free and open source. 
-        <a href="#">View on GitHub</a> · 
+        <a href="https://github.com/ethanplusai/spamtracer" target="_blank" rel="noopener noreferrer">View on GitHub</a> · 
         <a href="/privacy.html">Privacy Policy</a>
+      </p>
+      <p class="built-by">
+        Built by <a href="https://ethanplus.ai/?source=spamtracer.org" target="_blank" rel="noopener noreferrer">Ethan</a> ⚡
       </p>
     </div>
   </footer>
 </body>
 </html>
-
